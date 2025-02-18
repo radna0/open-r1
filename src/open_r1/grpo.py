@@ -1,3 +1,4 @@
+
 # Copyright 2025 The HuggingFace Team. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -61,10 +62,7 @@ class GRPOScriptArguments(ScriptArguments):
         cosine_max_len (`int`):
             Maximum length for cosine scaling.
     """
-    config = field(
-        default=None,
-        metadata={"help": "Path to the configuration file."}
-    )
+
     reward_funcs: list[str] = field(
         default_factory=lambda: ["accuracy", "format"],
         metadata={
