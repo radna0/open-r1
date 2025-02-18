@@ -61,7 +61,7 @@ class GRPOScriptArguments(ScriptArguments):
         cosine_max_len (`int`):
             Maximum length for cosine scaling.
     """
-    config: Optional[str] = field(
+    config = field(
         default=None,
         metadata={"help": "Path to the configuration file."}
     )
