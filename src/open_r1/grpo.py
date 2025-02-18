@@ -61,7 +61,10 @@ class GRPOScriptArguments(ScriptArguments):
         cosine_max_len (`int`):
             Maximum length for cosine scaling.
     """
-
+    config: Optional[str] = field(
+        default=None,
+        metadata={"help": "Path to the configuration file."}
+    )
     reward_funcs: list[str] = field(
         default_factory=lambda: ["accuracy", "format"],
         metadata={
