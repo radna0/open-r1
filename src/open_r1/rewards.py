@@ -39,7 +39,7 @@ def accuracy_reward(completions, solution, **kwargs):
                             malformed_operators=False,
                             basic_latex=True,
                             equations=True,
-                            boxed="all",
+                            boxed="last",
                             units=True,
                         ),
                         # Ensures that boxed is tried first
@@ -62,7 +62,7 @@ def accuracy_reward(completions, solution, **kwargs):
 
 def format_reward(completions, **kwargs):
     """Reward function that checks if the reasoning process is enclosed within <think> and </think> tags, while the final answer is enclosed within <answer> and </answer> tags."""
-    pattern = r"^<think>.*?</think>\s*<answer>.*?</answer>$"
+    pattern = r"^<think>.*?</think>.*\\boxed{.*}.?$"
     completion_contents = [completion[0]["content"] for completion in completions]
     matches = [re.match(pattern, content, re.DOTALL | re.MULTILINE) for content in completion_contents]
     return [1.0 if match else 0.0 for match in matches]
@@ -124,7 +124,7 @@ def len_reward(completions: list[Dict[str, str]], solution: list[str], **kwargs)
                         malformed_operators=False,
                         basic_latex=True,
                         equations=True,
-                        boxed=True,
+                        boxed="last",
                         units=True,
                     ),
                     boxed_match_priority=0,
@@ -201,7 +201,7 @@ def get_cosine_scaled_reward(
                             malformed_operators=False,
                             basic_latex=True,
                             equations=True,
-                            boxed=True,
+                            boxed="last",
                             units=True,
                         ),
                         boxed_match_priority=0,
