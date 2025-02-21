@@ -32,14 +32,14 @@ logging_steps: 10
 logging_strategy: steps
 lr_scheduler_type: cosine
 max_prompt_length: 512
-max_completion_length: 1024
+max_completion_length: 2048
 max_steps: -1
-num_generations: 2
-num_train_epochs: 3
+num_generations: 16
+num_train_epochs: 15
 output_dir: data/DeepSeek-R1-Distill-Qwen-14B-GRPO-LIMO
 overwrite_output_dir: true
-per_device_eval_batch_size: 2
-per_device_train_batch_size: 2
+per_device_eval_batch_size: 16
+per_device_train_batch_size: 16
 push_to_hub: true
 report_to:
 - wandb
@@ -49,12 +49,11 @@ reward_funcs:
 reward_weights:
 - 1.0
 - 1.0
-save_strategy: "steps"
 benchmarks:
 - math_500
 - aime24
 - gpqa
-save_steps: 20
+save_strategy: "epoch"
 seed: 42
 temperature: 0.7
 warmup_ratio: 0.1
