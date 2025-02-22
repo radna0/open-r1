@@ -1,5 +1,6 @@
 MODEL=radna/DeepSeek-R1-Distill-Qwen-7B-GRPO-LIMO
-MODEL_ARGS="pretrained=$MODEL,dtype=bfloat16,max_model_length=32768,gpu_memory_utilization=0.8,generation_parameters={max_new_tokens:32768,temperature:0.0}"
+REVISION=649fc38e45ec4c2c59a6da532bc2d20b2d697867
+MODEL_ARGS="pretrained=$MODEL,revision=$REVISION,dtype=bfloat16,max_model_length=32768,gpu_memory_utilization=0.8,generation_parameters={max_new_tokens:32768,temperature:0.0}"
 OUTPUT_DIR=data/evals/$MODEL
 
 # AIME 2024
