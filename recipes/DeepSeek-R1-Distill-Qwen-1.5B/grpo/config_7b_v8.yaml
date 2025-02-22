@@ -35,7 +35,7 @@ max_prompt_length: 3072
 max_completion_length: 16384
 max_steps: -1
 num_generations: 14
-num_train_epochs: 15
+num_train_epochs: 10
 output_dir: data/DeepSeek-R1-Distill-Qwen-7B-GRPO-LIMO
 overwrite_output_dir: true
 per_device_eval_batch_size: 16
@@ -50,11 +50,11 @@ reward_funcs:
 - repetition_penalty
 - reasoning_steps
 reward_weights:
-- 1.75
+- 2.0
 - 0.25
 - 1.5
 - 0.5
-- 1.0
+- 0.75
 benchmarks:
 - math_500
 - aime24
