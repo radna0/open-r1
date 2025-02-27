@@ -66,3 +66,4 @@ save_total_limit: 1
 seed: 42
 temperature: 0.7
 warmup_ratio: 0.1
+user_content_field: "prompt"
