@@ -37,12 +37,12 @@ lr_scheduler_type: cosine
 max_prompt_length: 3072
 max_completion_length: 12288
 max_steps: -1
-num_generations: 16
+num_generations: 8
 num_train_epochs: 5
 output_dir: data/DeepScaleR-1.5B-GRPO-LIMO
 overwrite_output_dir: true
-per_device_eval_batch_size: 16
-per_device_train_batch_size: 16
+per_device_eval_batch_size: 8
+per_device_train_batch_size: 8
 push_to_hub: true
 report_to:
 - wandb
@@ -63,7 +63,7 @@ benchmarks:
 - aime24
 - gpqa
 save_strategy: "steps"
-save_steps: 40
+save_steps: 100
 seed: 42
 temperature: 0.7
 warmup_ratio: 0.1
