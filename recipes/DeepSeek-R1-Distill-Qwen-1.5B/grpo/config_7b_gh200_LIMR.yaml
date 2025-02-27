@@ -21,7 +21,7 @@ do_eval: true
 eval_strategy: epoch
 eval_dataset: AI-MO/aimo-validation-aime
 dataset_test_split: train
-gradient_accumulation_steps: 4
+gradient_accumulation_steps: 8
 gradient_checkpointing: true
 gradient_checkpointing_kwargs:
   use_reentrant: false
@@ -37,12 +37,12 @@ lr_scheduler_type: cosine
 max_prompt_length: 3072
 max_completion_length: 12288
 max_steps: -1
-num_generations: 6
+num_generations: 4
 num_train_epochs: 5
 output_dir: data/DeepScaleR-1.5B-GRPO-LIMO
 overwrite_output_dir: true
-per_device_eval_batch_size: 6
-per_device_train_batch_size: 6
+per_device_eval_batch_size: 4
+per_device_train_batch_size: 4
 push_to_hub: true
 report_to:
 - wandb
