@@ -55,9 +55,9 @@ reward_funcs:
 reward_weights:
 - 2.0
 - 1.75
-- 0.5
+- 0.75
 - 0.25
-- 0.5
+- 0.25
 benchmarks:
 - math_500
 - aime24
