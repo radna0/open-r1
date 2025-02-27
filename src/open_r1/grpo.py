@@ -108,7 +108,10 @@ class GRPOScriptArguments(ScriptArguments):
             "choices": ["python", "javascript", "r", "java", "bash"],
         },
     )
-
+    user_content_field: str = field(
+        default="problem",
+        metadata={"help": "example field for extracting user content"},
+    )
 
 def main(script_args, training_args, model_args):
     # Set seed for reproducibility
@@ -185,7 +188,7 @@ def main(script_args, training_args, model_args):
         if training_args.system_prompt is not None:
             prompt.append({"role": "system", "content": training_args.system_prompt})
 
-        prompt.append({"role": "user", "content": example[parser.dataset_key]})
+        prompt.append({"role": "user", "content": example[script_args.user_content_field]})
         return {"prompt": prompt}
 
     dataset = dataset.map(make_conversation)
@@ -275,11 +278,5 @@ def main(script_args, training_args, model_args):
 
 if __name__ == "__main__":
     parser = TrlParser((GRPOScriptArguments, GRPOConfig, ModelConfig))
-    parser.add_argument(
-        "--dataset_key",
-        type=str,
-        default="problem",
-        help="Eval File to use",
-    )
     script_args, training_args, model_args = parser.parse_args_and_config()
     main(script_args, training_args, model_args)
