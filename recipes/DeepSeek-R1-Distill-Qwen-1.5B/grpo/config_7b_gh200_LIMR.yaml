@@ -19,6 +19,8 @@ vllm_device: auto
 vllm_gpu_memory_utilization: 0.5
 do_eval: true
 eval_strategy: epoch
+eval_dataset: AI-MO/aimo-validation-aime
+dataset_test_split: train
 gradient_accumulation_steps: 4
 gradient_checkpointing: true
 gradient_checkpointing_kwargs:
